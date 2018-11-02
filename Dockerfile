@@ -19,14 +19,16 @@ RUN /bin/bash -c "source /ribbit_env/bin/activate"
 
 #Agrega ',' a TEMPLATE_DIR
 #RUN /bin/bash -c "sed -i '114s/$/,/' django-ribbit/ribbit/settings.py"
-RUN /bin/bash -c "sed -i '114s/$/,/' arqsis_tarea_1/ribbit/settings.py"
+#RUN /bin/bash -c "sed -i '114s/$/,/' arqsis_tarea_1/ribbit/settings.py"
 #WORKDIR ./django-ribbit
 WORKDIR ./arqsis_tarea_1
 
 
 RUN ls
-RUN pip install -r requirements.txt
-
+#Por alguna razon, no se actualiza requirements.txt un error que tenia antes, y no puedo limpiar la cache manualmente, deberia ser con requierements.txt como entregable final
+#RUN pip install -r requirements.txt
+RUN pip install django==1.6.11
+RUN pip install South
 RUN python manage.py syncdb --noinput
 RUN python manage.py migrate ribbit_app
 
