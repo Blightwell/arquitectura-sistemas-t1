@@ -7,7 +7,8 @@ RUN apt-get -y install python
 RUN apt-get -y install python-pip
 #RUN apt-get -y install nano
 RUN pip install virtualenv
-RUN git clone https://github.com/gnarula/django-ribbit.git
+#RUN git clone https://github.com/gnarula/django-ribbit.git
+RUN git clone https://github.com/Blightwell/arqsis_tarea_1.git
 RUN virtualenv --no-site-packages ribbit_env
 RUN /bin/bash -c "source /ribbit_env/bin/activate"
 
@@ -15,11 +16,14 @@ RUN /bin/bash -c "source /ribbit_env/bin/activate"
 #RUN pip install South
 #->
 #RUN pip install -r requirements.txt
-RUN ls
-#Agrega ',' a TEMPLATE_DIR
-RUN /bin/bash -c "sed -i '114s/$/,/' django-ribbit/ribbit/settings.py"
 
-WORKDIR ./django-ribbit
+#Agrega ',' a TEMPLATE_DIR
+#RUN /bin/bash -c "sed -i '114s/$/,/' django-ribbit/ribbit/settings.py"
+RUN /bin/bash -c "sed -i '114s/$/,/' arqsis_tarea_1/ribbit/settings.py"
+#WORKDIR ./django-ribbit
+WORKDIR ./arqsis_tarea_1
+
+
 RUN ls
 RUN pip install -r requirements.txt
 
