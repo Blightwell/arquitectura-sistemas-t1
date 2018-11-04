@@ -3,17 +3,17 @@ pipeline{
     stages{
         stage('Pull Git'){
             steps{
-                sh './pullgit.sh'
+                chmod 777 sh './pullgit.sh'
             }
         }
         stage('Build Dockerfile'){
             steps{
-                sh './dockerbuild.sh'
+                chmod 777 sh './dockerbuild.sh'
             }
         }
         stage('Push Heroku'){
             steps{
-                sh './heroku.sh'
+                chmod 777 sh './heroku.sh'
             }
         }
     }
