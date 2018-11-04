@@ -2,8 +2,9 @@ pipeline{
     agent any
     stages{
         stage('Pull Git'){
-            sh 'chmod 777 ./pullgit.sh'
-
+            steps{
+                sh 'chmod 777 ./pullgit.sh'
+            }
         }
         stage('Build Dockerfile'){
             steps{
