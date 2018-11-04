@@ -8,12 +8,12 @@ pipeline{
         }
         stage('Build Dockerfile'){
             steps{
-                sh './dockerbuild.sh'
+                sh 'chmod 777 ./dockerbuild.sh'
             }
         }
         stage('Push Heroku'){
             steps{
-                sh './heroku.sh'
+                sh 'chmod 777 ./heroku.sh'
             }
         }
     }
