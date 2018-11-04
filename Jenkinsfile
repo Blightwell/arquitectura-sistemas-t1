@@ -1,17 +1,22 @@
 pipeline{
     agent any
     stages{
-        stage('Pull Git'){
+        stage('Pull Git (Pull de repositorio Github)'){
             steps{
-                sh 'chmod 777 ./pullgit.sh'
+                sh 'chmod 777 ./gitpull.sh'
             }
         }
-        stage('Build Dockerfile'){
+        stage('docker-compose build'){
             steps{
-                sh 'chmod 777 ./dockerbuild.sh'
+                sh 'chmod 777 ./dockercompose.sh'
             }
         }
-        stage('Push Heroku'){
+        stage('Push Git (Push de repositorio Github)'){
+            steps{
+                sh 'chmod 777 ./gitpush.sh'
+            }
+        }
+        stage('Push Heroku (Deployment de app a Heroku'){
             steps{
                 sh 'chmod 777 ./heroku.sh'
             }
