@@ -1,12 +1,8 @@
 pipeline{
-    agent{
-        dockerfile true
-    }
+    agent none
     stages{
-        stage('Example'){
-            steps{
-                echo 'Hello World!'
-            }
+        stage('Build Dockerfile'){
+            sh './dockerbuild.sh'
         }
     }
 }
